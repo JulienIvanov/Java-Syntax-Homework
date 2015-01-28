@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class P8_CountOfEqualBitPairs {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		String nBin = Integer.toBinaryString(n);
+		
+		int counter = 0;
+		for (int i = 0; i < nBin.length() - 1; i++) {
+			if (nBin.charAt(i) == nBin.charAt(i + 1)) {
+				counter++;
+			}
+		}
+		System.out.println(nBin);
+		System.out.println(counter);
+	}
+}

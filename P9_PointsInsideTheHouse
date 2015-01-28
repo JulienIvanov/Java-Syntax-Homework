@@ -1,0 +1,29 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class P9_PointsInsideTheHouse {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.ROOT);
+		
+		Scanner scan = new Scanner(System.in);
+		double x = scan.nextDouble();
+		double y = scan.nextDouble();
+		
+		double alpha = ((8.5 - 3.5) * (x - 17.5) + (17.5 - 22.5) * (y - 3.5)) /
+		        ((8.5 - 3.5) * (12.5 - 17.5) + (17.5 - 22.5) * (8.5 - 3.5));
+		double beta = ((3.5 - 8.5) * (x - 17.5) + (12.5 - 17.5) * (y - 3.5)) /
+		       ((8.5 - 3.5) * (12.5 - 17.5) + (17.5 - 22.5) * (8.5 - 3.5));
+		double gamma = 1.0 - alpha - beta;
+		
+		boolean firstCheck = (x >= 12.5) && (x <= 17.5) && (y >= 8.5) && (y <= 13.5);
+		boolean secondCheck = (x >= 20) && (x <= 22.5) && (y >= 8.5) && (y <= 13.5);
+		boolean thirdCheck = (alpha >= 0) && (beta >= 0) && (gamma >= 0);
+		
+		if (firstCheck || secondCheck || thirdCheck) {
+			System.out.println("Inside");
+		} else {
+			System.out.println("Outside");
+		}
+	}
+}
